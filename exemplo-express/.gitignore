@@ -1,0 +1,3 @@
+#Sempre ignore a pasta node_modules
+#pois ela contém codigo que não é seu!
+/node_modules
