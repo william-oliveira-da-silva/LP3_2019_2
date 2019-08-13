@@ -19,7 +19,7 @@ app.use('/inverter/:str', (req, res) => {
 
 app.use('/cpf/:cpf', (req, res) => {
     let cpf = req.params.cpf;
-    //Deixo pra vcs!
+    
 
     let Soma;
     let Resto;
@@ -46,4 +46,3 @@ app.use('/cpf/:cpf', (req, res) => {
 });
 
 module.exports = app;
-
