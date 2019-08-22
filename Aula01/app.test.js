@@ -41,27 +41,33 @@ describe('Testa o serviço de validação de CPFs', () => {
             '90258365692',
             '41663915423'
         ];
-        for(let i = 0; i < cpfsValidos.length; i++){
-            let resposta = await requesicao (app).get(`/cpf/${cpfsValidos[i]}`);
-            // let {valido } = resposta.body;
 
+        for(let i = 0; i < cpfsValidos.length; i++){
+            let resposta = await requesicao(app).get(`/cpf/${cpfsValidos[i]}`);
+
+            //let abobora = resposta.body.valido;
+            let {valido} = resposta.body;
             expect(valido).toBe(true);
         }
     });
-});
 
-test ('Deve retornar false ao receber um CPF innvalido', async () => {
-    const cpfInvalidos = [
-        '11727373714',
-        '21375370870',
-        '03082275224',
-        '00000000000',
-        '03082275224'
-    ];
-    for(let i = 0; i < cpfInvalidos.length; i++){
-        let resposta = await requesicao (app).get(`/cpf/${cpfInvalidos[i]}`);
-        // let {valido } = resposta.body;
+    test('Deve retornar false ao receber um CPF inválido', async () => {
+        const cpfInvalidos = [
+            '36515737881',
+            '54445791464',
+            '54647778143',
+            '65218795533',
+            '00000000000',
+            '1234',
+            'abc'
+        ];
+        
+        for(let i = 0; i < cpfInvalidos.length; i++){
+            let resposta = await requesicao(app).get(`/cpf/${cpfInvalidos[i]}`);
 
-        expect(valido).toBe(false);
-    }
+            //let abobora = resposta.body.valido;
+            let {valido} = resposta.body;
+            expect(valido).toBe(false);
+        }
+    });
 });
