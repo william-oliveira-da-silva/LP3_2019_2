@@ -8,9 +8,15 @@ const ListaController= require('../controllers/ListaController');
 const router = express.Router();
 
 /**
- * Rota para o serviço: /lista
+ * Rota para o serviço: /listas
  * Verbo HTTP: GET
  */
-router.get('/listas', ListaController.recuperarTodas);
+router.get('/', ListaController.recuperarTodas);
 
+/**
+ * Rota para o serviço: /listas
+ * Verbo HTTP: POST
+ */
+//algo novo no servidor
+router.post('/',ListaController.salvar);
 module.exports = router;

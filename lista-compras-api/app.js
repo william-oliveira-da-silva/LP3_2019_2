@@ -5,7 +5,7 @@ const logger = require ('morgan');
 const cors = require ('cors');
 const bodyParser = require ('body-parser');
 
-const rotaListas = require ('./routes/listas');
+const rotasListas = require ('./routes/listas');
 const app = express();
 
 app.use(logger('dev'));
@@ -26,6 +26,6 @@ app.use(bodyParser.json());
  * a listas
  */
 
- app.use(rotaListas);
+ app.use('/listas',rotasListas);
 
 module.exports = app;
