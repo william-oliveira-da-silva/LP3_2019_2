@@ -1,5 +1,5 @@
 const express = require('express');
-const ListaController= require('../controllers/ListaController');
+const ContatoController= require('../controllers/ContatoController');
 
 /** 
  * Cria o roteador dos web services relacionados a Lista. 
@@ -11,12 +11,12 @@ const router = express.Router();
  * Rota para o serviço: /listas
  * Verbo HTTP: GET
  */
-router.get('/', ListaController.recuperarTodas);
+router.get('/', ContatoController.recuperarTodas);
 
 /**
  * Rota para o serviço: /listas
  * Verbo HTTP: POST
  */
 //algo novo no servidor
-router.post('/',ListaController.salvar);
+router.post('/',ContatoController.salvar);
 module.exports = router;

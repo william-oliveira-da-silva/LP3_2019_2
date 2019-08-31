@@ -1,8 +1,8 @@
 class Lista {
 
-    constructor() {
+    constructor(nome) {
         this._id = `${new Date().getMilliseconds()}`;
-        this.nome = '';
+        this.nome = nome;
         this.itens = [];
     }
 }
