@@ -23,7 +23,7 @@ app.use(bodyParser.json());
 
 /**
  * Regitra as rotas relacionadas
- * a listas
+ * a contato
  */
 
  app.use('/contatos',rotasContatos);
