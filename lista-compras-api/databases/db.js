@@ -2,6 +2,7 @@ const Sequelize = require('sequelize');
 
 const dbConfig = require('./config');
 const ListaModel = require('../models/ListaModel');
+const ItemModel = require ('../models/ItemModel')
 
 const modo = process.env.NODE_ENV || 'development';
 
@@ -24,10 +25,11 @@ const conexao = new Sequelize(
  */
 
 const Lista = ListaModel(conexao, Sequelize);
+const Item = ItemModel(conexao, Sequelize);
 conexao
     .sync({ alter: true })
     .then(() => console.log('BD conectado e sincronizado'));
 
-const db = { Lista };
+const db = { Lista, Item};
 
 module.exports = db;

@@ -1,7 +1,8 @@
 /**
  * Este import é um exemplo de associação por desestruturação.
  */
-const { Lista } = require('../databases/db');
+const {Op} = require ('sequelize');
+const { Lista, Item} = require('../databases/db');
 
 const controller = {
     //Arrow function
@@ -32,6 +33,20 @@ const controller = {
                     .status(500)
                     .json({ mensagem: 'erro ao tentar salvar a lista' });
             });// catch => exceção
+    },
+
+    recuperarItensPorDescricao: async (req, res) => {
+        //const consulta = req.body.consulta;
+        const {consulta} = req.body;
+        let itens = await Item.findAll({
+            where:{
+                descricao: {
+                    [Op.iLike]: `%${consulta}%`
+                }
+            }
+        });
+        return res.json(itens);
+
     }
 };
 module.exports = controller;
