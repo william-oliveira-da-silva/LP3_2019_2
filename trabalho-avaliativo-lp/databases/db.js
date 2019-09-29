@@ -13,7 +13,8 @@ const conexao = new Sequelize(
     config.user,
     config.password, {
     host: config.host,
-    dialect: config.dialect
+    dialect: config.dialect,
+    // port: config.port
 }
 );
 
@@ -24,6 +25,6 @@ conexao
     .sync({ alter: true })
     .then(() => console.log('BD conectado e sincronizado'));
 
-const db = { Lista, Item};
+const db = { Lista, Item };
 
 module.exports = db;

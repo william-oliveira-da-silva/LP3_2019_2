@@ -15,7 +15,7 @@ const controller = {
         if (!lista.nome) {
             return res
                 .status(400)
-                .json({ mensagem: 'Algum camplo obrigatorio não informado' });
+                .json({ mensagem: 'Algum campo obrigatorio não informado' });
         }
 
         Lista

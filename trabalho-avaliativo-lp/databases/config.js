@@ -5,7 +5,7 @@ const config = {
         password: 'will',
         host: 'localhost',
         dialect: 'postgres',
-        //port: 5434
+        // port: 5432
 
     }
     
