@@ -1,7 +1,7 @@
-const ListaModel = (sequelize, DataTypes,dateOnly) => {
+const ListaModel = (sequelize, DataTypes, DateOnly) => {
     const Lista = sequelize.define('Lista', {
         titulo:{
-            type: DataTypes.STRING, 
+            type: DataTypes.STRING,  
             allowNull: false 
         },
         orientador:{
@@ -25,7 +25,7 @@ const ListaModel = (sequelize, DataTypes,dateOnly) => {
             allowNull: false 
         },
         dataSubmissao:{
-            type: DataTypes.STRING, 
+            type: DataTypes.DATEONLY, 
             allowNull: false 
         }
     }, {});

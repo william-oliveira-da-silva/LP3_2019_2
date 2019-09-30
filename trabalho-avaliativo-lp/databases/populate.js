@@ -1,5 +1,4 @@
-
-const {Item} = require ('./db');
+const { Item } = require('./db');
 
 const itens = [{
     "titulo": "Custo Efetivo Total",
@@ -46,13 +45,4 @@ const salvalItens = async () => {
     }
 };
 
-const salvarItens = async () => {
-    await require ('./db');
-    
-    for (let i = 0; i < itens.length; i++){
-        await Item.create(itens[i]);
-    }
-};
-
-salvarItens();
-
+salvalItens();

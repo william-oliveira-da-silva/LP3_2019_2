@@ -1,5 +1,4 @@
-const app = require ('./app');
-
+const app = require('./app');
 
 const PORTA = 3001;
 

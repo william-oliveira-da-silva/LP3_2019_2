@@ -1,10 +1,9 @@
-const ItemModel = (sequelize, DataTypes, dateOnly) => {
+const ItemModel = (sequelize, DataTypes, DateOnly) => {
     const Item = sequelize.define('Item', {
         titulo:{
             type: DataTypes.STRING, 
             allowNull: false 
         },
-
         orientador:{
             type: DataTypes.STRING, 
             allowNull: false 
@@ -18,10 +17,9 @@ const ItemModel = (sequelize, DataTypes, dateOnly) => {
             allowNull: false 
         },
         dataSubmissao:{
-            type: DataTypes.STRING, 
+            type: DataTypes.DATEONLY, 
             allowNull: false 
         }
-                
     }, {});
 
     return Item;
