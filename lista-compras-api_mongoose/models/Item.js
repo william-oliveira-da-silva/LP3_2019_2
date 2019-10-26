@@ -1,7 +1,7 @@
 const {Schema, model} = require ('mongoose');
 
 const esquema = new Schema({
-    dexcricao:{
+    descricao:{
         type: String,
         required: true
     },
