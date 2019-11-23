@@ -1,11 +1,12 @@
-const {Schema, model} = require ('mongoose');
+const { Schema, model } = require('mongoose');
 
 const esquema = new Schema({
-    descricao:{
+    descricao: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
-    unidade:{
+    unidade: {
         type: String,
         required: true
     }

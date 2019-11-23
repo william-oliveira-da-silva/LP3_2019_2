@@ -1,28 +1,38 @@
 const express = require('express');
-const ListaController= require('../controllers/ListaController');
+const ListaController = require('../controllers/ListaController');
 
-/** 
+/**
  * Cria o roteador dos web services relacionados a Lista. 
- * Por meio do roteador sera possivel definir os nossos web seervices.
- */
+ * Por meio do roteador será possível definir os nossos web services */
 const router = express.Router();
 
 /**
- * Rota para o serviço: /listas
+ * Rota para serviço: /listas
  * Verbo HTTP: GET
  */
-// router.get('/', ListaController.recuperarTodas);
+router.get('/', ListaController.recuperarListas);
 
 /**
- * Rota para o serviço: /listas
+ * Rota para o serviço: /listas/:id
+ * Verbo HTTP: PUT
+ */
+router.put('/:id', ListaController.atualizar);
+
+/**
+ * Rota para o serviço: /listas/:id
+ * Verbo HTTP: DELETE
+ */
+router.delete('/:id', ListaController.remover);
+
+/**
+ * Rota para o servidor: /listas
  * Verbo HTTP: POST
  */
-//algo novo no servidor
-router.post('/',ListaController.salvar);
+router.post('/', ListaController.salvar);
 
 /**
- * Rota para o serviço: /listas/itens
- * Verbo HTTP: get
+ * Rota para serviço: /listas/itens
+ * Verbo HTTP: GET
  */
 router.get('/itens', ListaController.recuperarItens);
 

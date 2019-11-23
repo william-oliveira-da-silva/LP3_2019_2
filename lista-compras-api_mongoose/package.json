@@ -1,5 +1,5 @@
 {
-  "name": "lista-compras-api",
+  "name": "lista_compras_api",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
