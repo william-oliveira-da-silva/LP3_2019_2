@@ -1,7 +1,7 @@
 const { Schema, model, ObjectId } = require('mongoose');
 
 const esquema = new Schema({
-    descrição: {
+    descricao: {
         type: String,
         required: true
     },
@@ -16,13 +16,7 @@ const esquema = new Schema({
     realizada: {
         type: String,
         required: true
-    },
-    itens: [
-        {
-            type: ObjectId,
-            ref: 'Item'
-        }
-    ]
+    }
 });
 
 const Tarefa = model('Tarefa', esquema);

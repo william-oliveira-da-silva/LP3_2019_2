@@ -1,10 +1,11 @@
-const itens = [{
-    "descrição": "fazer alguma coisa",
+const itens = [
+    {
+    "descricao": "fazer alguma coisa",
     "deadline": "15/12",
     "severidade": "baixa",
     "realizada": "nao"
 }
-
+    
 ];
 
 require('./db');

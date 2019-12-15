@@ -3,30 +3,32 @@ const Item = require('../models/Item');
 
 const controller = {
 
-    recuperar: async (req, res) => {
+    recuperarTarefas: async (req, res) => {
         const tarefas = await Tarefa.find();
         return res.json(tarefas);
     },
 
-    recuperarTarefa: async (req, res) => {
-        const itens = await Item.find({ severidade: { $regex: '', $options: 'i' } 
+    recuperarItens: async (req, res) => {
+        const itens = await Item.find({ descricao: { $regex: '', $options: 'i' } 
         });
         return res.json(itens);
     },
 
     salvar: (req, res) =>{
-        const { descricao, deadline, severidade} = req.body;
-        if (descricao ,deadline,severidade ) {
+        const { descricao } = req.body;
+        const { severidade} = req.body;
+        const { deadline} = req.body;
+        if (descricao && deadline && severidade) {
             const tarefa = req.body;
             Tarefa
             .create(tarefa)
-            .then(salvar => res.status(201).json(salvar))
+            .then(salvarTarefa => res.status(201).json(salvarTarefa))
             .catch(erro => {
                 console.log(erro);
                 res.status(500).json({ mensagem: 'Erro ao tentar salvar a tarefa'});
             });
         } else {
-            return res.status(400).json({ mensagem: 'descricao não informada'});
+            return res.status(400).json({ mensagem: 'Descrição, deadline ou severidade não informado'});
         }
     },
 
@@ -35,16 +37,16 @@ const controller = {
         const tarefa = req.body;
 
         Tarefa
-            .findByIdAndUpdate(id, tarefas)
+            .findByIdAndUpdate(id, tarefa)
             .exec()
-            .then(Atulizado => {
+            .then(tarefaAtulizado => {
                 
-                if(Atulizado){
-                    res.json({mensagem: 'Tarefa atualizado'});
+                if(tarefaAtulizado){
+                    res.json({mensagem: 'Tarefa atualizada'});
                 } else {
                     res
                         .status(404)
-                        .json({ mensagem: 'Tarefa não encontrado' });
+                        .json({ mensagem: 'Tarefa não encontrada' });
                 }
             })
             .catch(erro => { console.log(erro)});
