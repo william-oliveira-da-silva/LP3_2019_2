@@ -16,7 +16,13 @@ const esquema = new Schema({
     realizada: {
         type: String,
         required: true
-    }
+    },
+     itens: [
+        {
+            type: ObjectId,
+            ref: 'Item'
+        }
+    ]
 });
 
 const Tarefa = model('Tarefa', esquema);
